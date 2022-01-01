@@ -1,11 +1,29 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './logo.svg';
+
 import './App.css';
+import Header from './Pages/Header/Header';
+import Footer from './Pages/Footer/Footer';
+import { Route, Routes } from 'react-router-dom';
+import TeacherDashboard from './Pages/TeacherDashboard/TeacherDashboard';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome</h1>
+    <div>
+    
+      <Header/>
+      {/* <Routes>
+        <Route exact path="/" element={<TeacherDashboard/>}/>
+        <Route path="/home" element={<TeacherDashboard/>}/>
+      </Routes> */}
+      <TeacherDashboard/>
+
+     
+      <Footer/>
+
+      
+   
     </div>
   );
 }
