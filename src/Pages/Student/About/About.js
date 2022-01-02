@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Row } from 'react-bootstrap'
-import Banner from '../Banner'
-import SingleHome from './SingleHome'
-import './Home.css'
+import SingleAbout from '../About/SingleAbout'
+import Banner from '../Banner/Banner'
 
-const Home = () => {
+const About = () => {
     const [teachs, setTeachs] = useState([])
 
     useEffect(()=>{
@@ -20,10 +19,10 @@ const Home = () => {
            <h2 className="text-center my-5"> Tutor Finder</h2>
            {
                 <Row xs={1} md={2} className="g-4 single-product">
-                {teachs.slice(0,6).map(teach => <SingleHome
+                {teachs.slice(0,10).map(teach => <SingleAbout
                key={teach.name}
                teach={teach}
-               ></SingleHome>)
+               ></SingleAbout>)
                 }
                 </Row>
             }
@@ -32,4 +31,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default About

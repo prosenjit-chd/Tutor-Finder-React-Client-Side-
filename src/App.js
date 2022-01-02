@@ -4,11 +4,13 @@ import './App.css';
 import Nav from './Pages/Nav/Nav';
 // import Home from './Pages/Banner/Home/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './Pages/Banner/Home/Home';
-import About from './Pages/Banner/Home/About/About';
-import Contact from './Pages/Banner/Home/About/Contact/Contact';
-import Banner from './Pages/Banner/Banner';
-
+import Home from './Pages/Home/Home';
+import About from './Pages/About/About';
+import Contact from './Pages/Contact/Contact';
+import Footer from './Pages/Footer/Footer';
+import Courses from './Pages/Courses/Courses';
+import Teach from './Pages/Teach/Teach';
+import NotFound from './Pages/NotFound/NotFound';
 
 
 function App() {
@@ -20,8 +22,12 @@ function App() {
          <Route path="/" element={<Home/>}></Route>
          <Route path="/home" element={<Home/>}></Route>
          <Route path="/about" element={<About/>}></Route>
+         <Route path="/courses/:id" element={<Courses/>}></Route>
+         <Route path="/teach" element={<Teach/>}></Route>
          <Route path="/contact" element={<Contact/>}></Route>
+         <Route path="*" element={<NotFound/>}></Route>
       </Routes>
+      <Footer/>
       </BrowserRouter>
     </div>
   );

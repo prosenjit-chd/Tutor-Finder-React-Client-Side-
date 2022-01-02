@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Row } from 'react-bootstrap'
-import Banner from '../../Banner'
-import SingleAbout from './SingleAbout'
+import SingleHome from '../SingleHome/SingleHome'
+import './Home.css'
+import Banner from '../Banner/Banner'
 
-// import SingleHome from './SingleHome'
-// import './Home.css'
-
-const About = () => {
+const Home = () => {
     const [teachs, setTeachs] = useState([])
 
     useEffect(()=>{
@@ -22,10 +20,10 @@ const About = () => {
            <h2 className="text-center my-5"> Tutor Finder</h2>
            {
                 <Row xs={1} md={2} className="g-4 single-product">
-                {teachs.slice(0,10).map(teach => <SingleAbout
+                {teachs.slice(0,6).map(teach => <SingleHome
                key={teach.name}
                teach={teach}
-               ></SingleAbout>)
+               ></SingleHome>)
                 }
                 </Row>
             }
@@ -34,4 +32,4 @@ const About = () => {
     )
 }
 
-export default About
+export default Home
