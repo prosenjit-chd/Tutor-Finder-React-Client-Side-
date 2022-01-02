@@ -8,9 +8,9 @@ const Home = () => {
     const [teachs, setTeachs] = useState([])
 
     useEffect(()=>{
-        fetch('./tutor.json')
+        fetch('https://tutor-finder.herokuapp.com/tutors')
         .then(res => res.json())
-        .then(data => setTeachs(data))
+        .then(data => setTeachs(data.tutors))
     }, [])
     return (
         <>

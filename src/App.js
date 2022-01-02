@@ -32,6 +32,8 @@ function App() {
       <Router>
         <Nav />
         <Routes>
+  {/* student */}
+
           <Route path="/" element={<Home />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
@@ -39,14 +41,15 @@ function App() {
           <Route path="/teach" element={<Teach />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="*" element={<NotFound />}></Route>
-  
+
+  {/* Teacher */}
           <Route path="/add-techer-ads" element={<AddTutorAds />}>
           </Route>
           <Route path="/teacher-dashboard" element={<TeacherHome />}>
           </Route>
           <Route path="/post-pending" element={<NewTeacherStatus />}>
           </Route>
-
+{/* Admin*/}
           <Route path="/admin" element={<AdminDashboard />}>
             <Route exact path="/admin" element={<MakeAdmin />}>
             </Route>
