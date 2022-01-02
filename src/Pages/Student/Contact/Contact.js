@@ -2,10 +2,11 @@ import React from 'react'
 import './Contact.css'
 import banner from '../../../bannerImages/1000_F_415483705_W0a7hGcbrURMoX3grdX3ncYd94YKwSDI.jpg'
 
+
 const Contact = () => {
     return (
         <div>
-            <img src={banner} class='img-fluid' alt="" />
+            <img src="https://i.ibb.co/y69v7Hr/1000-F-415483705-W0a7h-Gcbr-URMo-X3grd-X3nc-Yd94-YKw-SDI.jpg" class='img-fluid' alt="" />
             <h2 className='text-center my-5'>Contact Us</h2>
             <div>
                 <div class="container">

@@ -1,14 +1,12 @@
 import React from 'react'
-import SingleAbout from '../About/SingleAbout'
 import './Teach.css'
 
 const Teach = () => {
     return (
         <div>
-            <img src="https://i.ibb.co/5GLxXq5/Capture.png" alt="" />
             {/* card  Categories-start */}
             
-            <div className='d-flex mx-5 my-5'>
+            <div className='d-flex mx-5 margin-design'>
             <div class="card categories pt-5 pb-5">
             <div class="card-body">
             <div className='mx-5'>
@@ -65,7 +63,7 @@ const Teach = () => {
             {/* card-categories-end */}
 
             <div>
-              
+            
             </div>
         </div>
     )

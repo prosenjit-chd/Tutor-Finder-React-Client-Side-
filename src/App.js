@@ -6,6 +6,15 @@ import {
 } from "react-router-dom";
 
 import './App.css';
+// import Home from './Pages/Student/Home/Home';
+// import About from './Pages/Student/About/About';
+// import Courses from './Pages/Student/Courses/Courses';
+// import Teach from './Pages/Student/Teach/Teach';
+// import Contact from './Pages/Student/Contact/Contact';
+// import NotFound from './Pages/Student/NotFound/NotFound';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import Footer from './Pages/Student/Footer/Footer';
+// import Nav from './Pages/Student/Nav/Nav';
 import Nav from './Pages/Student/Nav/Nav';
 // import Home from './Pages/Banner/Home/Home';
 import Home from './Pages/Student/Home/Home';
