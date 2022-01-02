@@ -25,6 +25,14 @@ const Courses = () => {
         data.subject=teacher?.subject[0];
         data.salary=teacher?.salary;
 
+        fetch('https://tutor-finder.herokuapp.com/orders',{
+            method:"POST",
+            headers:{"content-type":"application/json"},
+            body:JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(result=>console.log(result))
+
         
 
 
