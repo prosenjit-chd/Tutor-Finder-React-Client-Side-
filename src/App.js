@@ -1,20 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+import AddTutorAds from './Pages/Teacher/AddTutorAds/AddTutorAds';
+import TeacherHome from './Pages/Teacher/TeacherHome/TeacherHome';
+import NewTeacherStatus from './Pages/Teacher/NewTeacherStatus/NewTeacherStatus';
 
-import './App.css';
-// import Home from './Pages/Student/Home/Home';
-// import About from './Pages/Student/About/About';
-// import Courses from './Pages/Student/Courses/Courses';
-// import Teach from './Pages/Student/Teach/Teach';
-// import Contact from './Pages/Student/Contact/Contact';
-// import NotFound from './Pages/Student/NotFound/NotFound';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import Footer from './Pages/Student/Footer/Footer';
-// import Nav from './Pages/Student/Nav/Nav';
 import Nav from './Pages/Student/Nav/Nav';
 // import Home from './Pages/Banner/Home/Home';
 import Home from './Pages/Student/Home/Home';
@@ -45,6 +39,13 @@ function App() {
           <Route path="/teach" element={<Teach />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="*" element={<NotFound />}></Route>
+  
+          <Route path="/add-techer-ads" element={<AddTutorAds />}>
+          </Route>
+          <Route path="/teacher-dashboard" element={<TeacherHome />}>
+          </Route>
+          <Route path="/post-pending" element={<NewTeacherStatus />}>
+          </Route>
 
           <Route path="/admin" element={<AdminDashboard />}>
             <Route exact path="/admin" element={<MakeAdmin />}>
