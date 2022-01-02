@@ -6,7 +6,7 @@ import './SingleHome.css'
 const SingleHome = ({teach}) => {
     const {img, name, salary, area, mobile, institute, current_education} = teach;
     return (
-       <div className='col-lg-4 col-md-6 col-12'>
+           <div className='col-lg-4 col-md-6 col-12'>
             <Card className="card" style={{ width: '18rem' }}>
             <Card.Img variant="top" className='img-design' src={img} />
             <Card.Body className="text-center">
@@ -19,7 +19,7 @@ const SingleHome = ({teach}) => {
             <Link to={`/Courses/${teach.id}`}><Button className="btn-color" variant="primary">Details</Button></Link>
             </Card.Body>
             </Card>
-        </div>
+      </div>
     )
 }
 

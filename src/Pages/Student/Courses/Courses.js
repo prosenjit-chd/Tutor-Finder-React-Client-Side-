@@ -1,21 +1,15 @@
-// import React, { useEffect, useState } from 'react'
-// import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import './Courses.css'
 
 const Courses = () => {
+    
     // form
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => console.log(data);
-    // const {id} = useParams()
-    // const [bookings, setBookings] = useState([]);
-
-    // useEffect(()=>{
-    //     fetch(`./tutor.json/${id}`)
-    //     .then(res => res.json())
-    //     .then(data => console.log(data))
-    // },[])
+   
     return (
         <div className="product">
             <div>
