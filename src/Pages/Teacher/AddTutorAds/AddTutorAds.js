@@ -21,8 +21,9 @@ const AddTutorAds = () => {
         const newProduct = {
             ...product
         }
+        newProduct["status"] = false;
         console.log(newProduct);
-        axios.post('#', newProduct)
+        axios.post('https://tutor-finder.herokuapp.com/tutors', newProduct)
             .then(res => {
                 if (res.data.insertedId) {
                     swal({
