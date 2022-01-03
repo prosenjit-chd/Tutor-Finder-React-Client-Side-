@@ -11,7 +11,7 @@ const ManageTutorBooks = () => {
     let findOrder = {};
 
     useEffect(() => {
-        axios.get('#')
+        axios.get('https://tutor-finder.herokuapp.com/orders')
             .then(res => setOrders(res.data))
             .then(() => setLoading(false))
             .catch(err => console.log(err))
@@ -21,7 +21,7 @@ const ManageTutorBooks = () => {
         findOrder = orders.find(product => product._id === id)
         swal({
             title: "Are you sure?",
-            text: `You want to make status ${!findOrder.status ? "Shipped" : "Pending"}`,
+            text: `You want to make status ${!findOrder.status ? "Approved" : "Pending"}`,
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -30,7 +30,7 @@ const ManageTutorBooks = () => {
                 if (willDelete) {
                     findOrder.status = !findOrder.status;
                     // update approve or pending 
-                    axios.put(`#`, findOrder)
+                    axios.put(`https://tutor-finder.herokuapp.com/orders/${id}`, findOrder)
                         .then(res => {
                             if (res.data.modifiedCount > 0) {
                             }
@@ -56,7 +56,7 @@ const ManageTutorBooks = () => {
             .then((willDelete) => {
                 if (willDelete) {
                     // delete reservation 
-                    axios.delete(`#`)
+                    axios.delete(`https://tutor-finder.herokuapp.com/orders/${id}`)
                         .then(res => {
                             if (res.data.deletedCount) {
                                 const remainingOrders = orders.filter(event => event._id !== id);
@@ -87,11 +87,10 @@ const ManageTutorBooks = () => {
                                     <th>#</th>
                                     <th>Image</th>
                                     <th>Tutor Name</th>
-                                    <th>Customer Name</th>
-                                    <th>Phone Number</th>
-                                    <th>Address</th>
+                                    <th>Student Name</th>
+                                    <th>Tutor Number</th>
+                                    <th>Subject</th>
                                     <th>Price</th>
-                                    <th>Date</th>
                                     <th>Status</th>
                                     <th colSpan="2">Action</th>
                                 </tr>
@@ -103,13 +102,12 @@ const ManageTutorBooks = () => {
                                             <tr>
                                                 <td>{index + 1}</td>
                                                 <td><img style={{ height: '100px' }} src={product.img} alt="" /></td>
-                                                <td>{product.model}</td>
                                                 <td>{product.name}</td>
-                                                <td>{product.phone}</td>
-                                                <td>{product.address}</td>
-                                                <td>${product.price}</td>
-                                                <td>{product.date}</td>
-                                                <td><span className={!product.status ? "text-warning fw-bold" : "text-success fw-bold"}>{!product.status ? "Pending" : "Shipped"}</span></td>
+                                                <td>{product.studentName}</td>
+                                                <td>{product.number}</td>
+                                                <td>{product.subject}</td>
+                                                <td>${product.salary}</td>
+                                                <td><span className={!product.status ? "text-warning fw-bold" : "text-success fw-bold"}>{!product.status ? "Pending" : "Approved"}</span></td>
                                                 <td
                                                     onClick={() => handleUpdateStatus(product._id)}
                                                     style={{ cursor: 'pointer' }}

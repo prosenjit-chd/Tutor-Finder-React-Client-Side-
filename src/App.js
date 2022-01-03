@@ -25,6 +25,7 @@ import MakeAdmin from './Pages/Admin/MakeAdmin/MakeAdmin';
 import ManageTutor from './Pages/Admin/ManageTutor/ManageTutor';
 import ManageTutorAds from './Pages/Admin/ManageTutorAds/ManageTutorAds';
 import ManageTutorBooks from './Pages/Admin/ManageTutorBooks/ManageTutorBooks';
+import MakeTeacher from './Pages/Admin/MakeTeacher/MakeTeacher';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
       <Router>
         <Nav />
         <Routes>
-  {/* student */}
+          {/* student */}
 
           <Route path="/" element={<Home />}></Route>
           <Route path="/home" element={<Home />}></Route>
@@ -42,18 +43,20 @@ function App() {
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="*" element={<NotFound />}></Route>
 
-  {/* Teacher */}
+          {/* Teacher */}
           <Route path="/add-techer-ads" element={<AddTutorAds />}>
           </Route>
           <Route path="/teacher-dashboard" element={<TeacherHome />}>
           </Route>
           <Route path="/post-pending" element={<NewTeacherStatus />}>
           </Route>
-{/* Admin*/}
+          {/* Admin*/}
           <Route path="/admin" element={<AdminDashboard />}>
             <Route exact path="/admin" element={<MakeAdmin />}>
             </Route>
             <Route path={`admin/make-admin`} element={<MakeAdmin />}>
+            </Route>
+            <Route path={`admin/make-teacher`} element={<MakeTeacher />}>
             </Route>
             <Route path={`admin/add-tutor`} element={<AddTutor />}>
             </Route>
