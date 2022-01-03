@@ -78,6 +78,7 @@ const AdminDashboard = () => {
                             ) : (
                                 <>
                                     <MenuItem icon={<BsFillCartFill />}> <Link activeStyle={activeStyle} to={`admin/make-admin`}>Make Admin</Link></MenuItem>
+                                    <MenuItem icon={<BsFillCartFill />}> <Link activeStyle={activeStyle} to={`admin/make-teacher`}>Make Teacher</Link></MenuItem>
                                     <MenuItem icon={<FaUserTie />}> <Link activeStyle={activeStyle} to={`admin/add-tutor`}>Add Tutor</Link></MenuItem>
                                     <MenuItem icon={<BsFillInboxesFill />}> <Link activeStyle={activeStyle} to={`admin/manage-tutor-ads`}>Manage Tutor Request</Link></MenuItem>
                                     <MenuItem icon={<BsFillInboxesFill />}> <Link activeStyle={activeStyle} to={`admin/manage-tutor-books`}>Manage Tutor Books</Link></MenuItem>
@@ -121,9 +122,6 @@ const AdminDashboard = () => {
                 <section className="p-4" style={{ minHeight: '90vh' }}>
                     <Outlet></Outlet>
                 </section>
-                <footer>
-                    <div className="text-center">© 2021 Tutor Finder. All rights reserved</div>
-                </footer>
             </main>
         </div>
     );

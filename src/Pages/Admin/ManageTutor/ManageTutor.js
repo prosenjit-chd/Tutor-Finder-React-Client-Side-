@@ -9,8 +9,8 @@ const ManageTutor = () => {
     const [allProducts, setAllProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
-        axios.get('#')
-            .then(res => setAllProducts(res.data.products))
+        axios.get('https://tutor-finder.herokuapp.com/tutors')
+            .then(res => setAllProducts(res.data.tutors))
             .then(() => setLoading(false))
             .catch(err => console.log(err))
     }, []);
@@ -18,7 +18,7 @@ const ManageTutor = () => {
     const handleDeleteProduct = (id) => {
         swal({
             title: "Are you sure?",
-            text: "You want to cancel product",
+            text: "You want to Delete Teacher Post",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -26,14 +26,14 @@ const ManageTutor = () => {
             .then((willDelete) => {
                 if (willDelete) {
                     // delete reservation 
-                    axios.delete(`#`)
+                    axios.delete(`https://tutor-finder.herokuapp.com/tutors/${id}`)
                         .then(res => {
                             if (res.data.deletedCount) {
                                 const remainingProducts = allProducts.filter(product => product._id !== id);
                                 setAllProducts(remainingProducts);
                             }
                         }).catch(err => console.log(err))
-                    swal("Product is sucessfully deleted", {
+                    swal("Teacher Post is sucessfully deleted", {
                         icon: "success",
                     });
                 } else {
@@ -69,10 +69,10 @@ const ManageTutor = () => {
                                         return (
                                             <tr>
                                                 <td>{index + 1}</td>
-                                                <td><img style={{ height: '100px' }} src={product.img} alt="" /></td>
+                                                <td><img style={{ height: '100px', width: '120px' }} src={product.img} alt="" /></td>
                                                 <td>{product.name}</td>
                                                 <td>{product.mobile}</td>
-                                                <td>{product.education}</td>
+                                                <td>{product.current_education}</td>
                                                 <td>{product.salary}</td>
                                                 <td
                                                     onClick={() => handleDeleteProduct(product._id)}

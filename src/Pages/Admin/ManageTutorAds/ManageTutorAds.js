@@ -11,8 +11,8 @@ const ManageTutorAds = () => {
     let findOrder = {};
 
     useEffect(() => {
-        axios.get('#')
-            .then(res => setOrders(res.data))
+        axios.get('https://tutor-finder.herokuapp.com/tutors?status=false')
+            .then(res => setOrders(res.data.tutors))
             .then(() => setLoading(false))
             .catch(err => console.log(err))
     }, [findOrder]);
@@ -30,7 +30,7 @@ const ManageTutorAds = () => {
                 if (willDelete) {
                     findOrder.status = !findOrder.status;
                     // update approve or pending 
-                    axios.put(`#`, findOrder)
+                    axios.put(`https://tutor-finder.herokuapp.com/tutors/${id}`, findOrder)
                         .then(res => {
                             if (res.data.modifiedCount > 0) {
                             }
@@ -48,7 +48,7 @@ const ManageTutorAds = () => {
     const handleDeleteOrder = (id) => {
         swal({
             title: "Are you sure?",
-            text: "You want to cancel you order",
+            text: "You want to cancel",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -56,14 +56,14 @@ const ManageTutorAds = () => {
             .then((willDelete) => {
                 if (willDelete) {
                     // delete reservation 
-                    axios.delete(`#`)
+                    axios.delete(`https://tutor-finder.herokuapp.com/tutors/${id}`)
                         .then(res => {
                             if (res.data.deletedCount) {
                                 const remainingOrders = orders.filter(event => event._id !== id);
                                 setOrders(remainingOrders);
                             }
                         }).catch(err => console.log(err))
-                    swal("Your reservation is sucessfully cancelled", {
+                    swal("Your request is sucessfully cancelled", {
                         icon: "success",
                     });
                 } else {
@@ -86,11 +86,11 @@ const ManageTutorAds = () => {
                                 <tr>
                                     <th>#</th>
                                     <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Education</th>
-                                    <th>Mobile</th>
+                                    <th>Tutor Name</th>
                                     <th>Email</th>
-                                    <th>Salary</th>
+                                    <th>Mobile Number</th>
+                                    <th>Area</th>
+                                    <th>Price</th>
                                     <th>Status</th>
                                     <th colSpan="2">Action</th>
                                 </tr>
@@ -101,14 +101,13 @@ const ManageTutorAds = () => {
                                         return (
                                             <tr>
                                                 <td>{index + 1}</td>
-                                                <td><img style={{ height: '100px' }} src={product.img} alt="" /></td>
-                                                <td>{product.image}</td>
+                                                <td><img style={{ height: '100px', width: '120px' }} src={product.img} alt="" /></td>
                                                 <td>{product.name}</td>
-                                                <td>{product.education}</td>
+                                                <td>{product.email}</td>
                                                 <td>{product.mobile}</td>
-                                                <td>${product.email}</td>
-                                                <td>{product.salary}</td>
-                                                <td><span className={!product.status ? "text-warning fw-bold" : "text-success fw-bold"}>{!product.status ? "Pending" : "Shipped"}</span></td>
+                                                <td>{product.area}</td>
+                                                <td>${product.salary}</td>
+                                                <td><span className={!product.status ? "text-warning fw-bold" : "text-success fw-bold"}>{!product.status ? "Pending" : "Approved"}</span></td>
                                                 <td
                                                     onClick={() => handleUpdateStatus(product._id)}
                                                     style={{ cursor: 'pointer' }}

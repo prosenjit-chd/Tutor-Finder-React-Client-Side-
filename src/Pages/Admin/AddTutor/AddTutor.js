@@ -19,13 +19,14 @@ const AddTutor = () => {
         const newProduct = {
             ...product
         }
+        newProduct["status"] = true;
         console.log(newProduct);
-        axios.post('#', newProduct)
+        axios.post('https://tutor-finder.herokuapp.com/tutors', newProduct)
             .then(res => {
                 if (res.data.insertedId) {
                     swal({
                         title: "Sucessful!",
-                        text: "Product successfully added!",
+                        text: "Successfully added!",
                         icon: "success",
                         button: "OK",
                     });
