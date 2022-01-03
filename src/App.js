@@ -25,45 +25,61 @@ import MakeAdmin from './Pages/Admin/MakeAdmin/MakeAdmin';
 import ManageTutor from './Pages/Admin/ManageTutor/ManageTutor';
 import ManageTutorAds from './Pages/Admin/ManageTutorAds/ManageTutorAds';
 import ManageTutorBooks from './Pages/Admin/ManageTutorBooks/ManageTutorBooks';
+import Login from './Pages/Login/Login/Login';
+import Register from './Pages/Login/Register/Register';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/courses/:id" element={<Courses />}></Route>
-          <Route path="/teach" element={<Teach />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-  
-          <Route path="/add-techer-ads" element={<AddTutorAds />}>
-          </Route>
-          <Route path="/teacher-dashboard" element={<TeacherHome />}>
-          </Route>
-          <Route path="/post-pending" element={<NewTeacherStatus />}>
-          </Route>
+      <AuthProvider>
+        <Router>
+          <Nav />
+          <Routes>
+            {/* student */}
 
-          <Route path="/admin" element={<AdminDashboard />}>
-            <Route exact path="/admin" element={<MakeAdmin />}>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/courses/:id" element={<PrivateRoute><Courses /></PrivateRoute>}></Route>
+            <Route path="/teach" element={<Teach />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
+
+
+            {/* Teacher */}
+            <Route path="/add-techer-ads" element={<AddTutorAds />}>
             </Route>
-            <Route path={`admin/make-admin`} element={<MakeAdmin />}>
+            <Route path="/teacher-dashboard" element={<TeacherHome />}>
             </Route>
-            <Route path={`admin/add-tutor`} element={<AddTutor />}>
+            <Route path="/post-pending" element={<NewTeacherStatus />}>
             </Route>
-            <Route path={`admin/manage-tutor`} element={<ManageTutor />}>
+            {/* Admin*/}
+            <Route path="/admin" element={<AdminDashboard />}>
+              <Route exact path="/admin" element={<MakeAdmin />}>
+              </Route>
+              <Route path={`admin/make-admin`} element={<MakeAdmin />}>
+              </Route>
+              <Route path={`admin/add-tutor`} element={<AddTutor />}>
+              </Route>
+              <Route path={`admin/manage-tutor`} element={<ManageTutor />}>
+              </Route>
+              <Route path={`admin/manage-tutor-ads`} element={<ManageTutorAds />}>
+              </Route>
+              <Route path={`admin/manage-tutor-books`} element={<ManageTutorBooks />}>
+              </Route>
             </Route>
-            <Route path={`admin/manage-tutor-ads`} element={<ManageTutorAds />}>
+            {/* autentication */}
+            <Route path="/login" element={<Login />}>
             </Route>
-            <Route path={`admin/manage-tutor-books`} element={<ManageTutorBooks />}>
+            <Route path="/register" element={<Register />}>
             </Route>
-          </Route>
-        </Routes>
-        <Footer />
-      </Router>
+
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
