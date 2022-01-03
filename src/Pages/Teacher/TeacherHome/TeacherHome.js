@@ -44,7 +44,6 @@ const TeacherHome = () => {
                                             <p className="card-text fw-bolder">Phone : {teacher?.mobile}</p>
                                             <p className="card-text fw-bolder">Salary : Tk {teacher?.salary}</p>
                                             <p className="card-text fw-bolder">Tuition Areas : {teacher?.area}</p>
-
                                             <p className="card-text border-top">Current Status:<small className="text-primary fw-bold"> Approved</small></p>
                                         </div>
                                     </div>
