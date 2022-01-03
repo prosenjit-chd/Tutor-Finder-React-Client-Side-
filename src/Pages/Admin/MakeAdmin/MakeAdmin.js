@@ -9,7 +9,7 @@ const MakeAdmin = () => {
         e.preventDefault();
         const email = emailRef.current.value;
         const user = { email };
-        axios.put('#', user)
+        axios.put('https://tutor-finder.herokuapp.com/users/admin', user)
             .then(res => {
                 if (res.data.modifiedCount) {
                     swal({
