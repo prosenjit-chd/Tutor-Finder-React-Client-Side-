@@ -18,7 +18,8 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto fw-bold">
-                            <NavLink className="nav-link" activeStyle={activeStyle} to="/teacher-dashboard">Home</NavLink>
+                            <NavLink className="nav-link" activeStyle={activeStyle} to="/home">Home</NavLink>
+                            <NavLink className="nav-link" activeStyle={activeStyle} to="/teacher-dashboard">My Ads</NavLink>
                             <NavLink className="nav-link" activeStyle={activeStyle} to="/post-pending">Pending</NavLink>
                             <NavLink className="nav-link" activeStyle={activeStyle} to="/add-techer-ads">Add Post</NavLink>
                             {/* {

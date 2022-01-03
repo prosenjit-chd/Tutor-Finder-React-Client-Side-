@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { useForm } from "react-hook-form";
+import { useForm} from "react-hook-form";
 import './Courses.css'
+import swal from 'sweetalert';
+
 
 const Courses = () => {
     const {id}=useParams();
@@ -16,7 +18,7 @@ const Courses = () => {
    
     
     // form
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,reset } = useForm();
 
     const onSubmit=(data)=>{
         data.name=teacher?.name;
@@ -24,6 +26,7 @@ const Courses = () => {
         data.img=teacher?.img;
         data.subject=teacher?.subject[0];
         data.salary=teacher?.salary;
+        data.status=false;
 
         fetch('https://tutor-finder.herokuapp.com/orders',{
             method:"POST",
@@ -31,7 +34,13 @@ const Courses = () => {
             body:JSON.stringify(data)
         })
         .then(res=>res.json())
-        .then(result=>console.log(result))
+        .then(result=>{
+            if(result.acknowledged){
+                reset()
+                swal("Success!", "Order Successfully!", "success");
+               
+            }
+        })
 
         
 
@@ -43,10 +52,7 @@ const Courses = () => {
    
     return (
         <div className="product">
-            
-            
-            
-            <div className='row'>
+          <div className='row'>
                 <div className='col col-lg-7 col-md-7 col-sm-12 col-12'>
                   
                 <div className="card mb-3 single-card ">

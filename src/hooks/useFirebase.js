@@ -84,7 +84,10 @@ const useFirebase = () => {
                 // set Admin
                 fetch(`https://tutor-finder.herokuapp.com/users/${user.email}`)
                     .then(res => res.json())
-                    .then(data => setAdmin(data.admin))
+                    .then(data => {
+                        setAdmin(data.admin)
+                        setTeacher(data.teacher)
+                    })
                     .finally(() => setIsLoading(false));
                 ///////    
                 getIdToken(user)

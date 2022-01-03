@@ -5,15 +5,18 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import axios from 'axios';
 
 const TeacherHome = () => {
     AOS.init();
     const [teachers, setTeachers] = useState([]);
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
-        fetch('./tutor.json')
-            .then(res => res.json())
-            .then(data => setTeachers(data))
-    }, [])
+        axios.get('https://tutor-finder.herokuapp.com/tutors?email=evan@gmail.com&status=true')
+            .then(res => setTeachers(res.data.tutors))
+            .then(() => setLoading(false))
+            .catch(err => console.log(err))
+    }, []);
     console.log(teachers)
     return (
         <>
@@ -37,14 +40,13 @@ const TeacherHome = () => {
                                         <div className="card-body">
                                             <h3 className="card-title fw-bolder text-primary">{teacher?.name}</h3>
                                             <p className="card-text fw-bolder">Tuition Class : {teacher?.class}</p>
-                                            <p className="card-text fw-bolder">Teaching : {teacher?.subject[0]}, {teacher?.subject[1]}</p>
+                                            <p className="card-text fw-bolder">Teaching : {teacher?.subject}</p>
                                             <p className="card-text fw-bolder">Qualification : {teacher?.current_education}</p>
                                             <p className="card-text fw-bolder">Institute : {teacher?.institute}</p>
                                             <p className="card-text fw-bolder">Email : {teacher?.email}</p>
                                             <p className="card-text fw-bolder">Phone : {teacher?.mobile}</p>
                                             <p className="card-text fw-bolder">Salary : Tk {teacher?.salary}</p>
                                             <p className="card-text fw-bolder">Tuition Areas : {teacher?.area}</p>
-
                                             <p className="card-text border-top">Current Status:<small className="text-primary fw-bold"> Approved</small></p>
                                         </div>
                                     </div>

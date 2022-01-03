@@ -8,49 +8,49 @@ import './About.css'
 
 const About = () => {
     const [teachs, setTeachs] = useState([])
-    const [isLoading,setIsLoading]=useState(true)
+    const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(()=>{
+    useEffect(() => {
         setIsLoading(true)
         fetch('https://tutor-finder.herokuapp.com/tutors')
-        .then(res => res.json())
-        .then(data => {
-            setTeachs(data.tutors)
-            setIsLoading(false)
-        })
-        
+            .then(res => res.json())
+            .then(data => {
+                setTeachs(data.tutors)
+                setIsLoading(false)
+            })
+
     }, [])
 
-  
+
     return (
-        <div>
-        
-         <img className='img-fluid w-100' src="https://i.ibb.co/5GLxXq5/Capture.png" alt="" />
-         <marquee><h1 className="text-center my-5 fs-1 fw-bolder"> Tutor Finder</h1></marquee>
-         {isLoading && <Spinner animation="border" variant="primary" />}
-          <div className='row'>
-         
-              {/* card */}
+        <div className='container-fluid'>
+
+            <img className='img-fluid w-100' src="https://i.ibb.co/5GLxXq5/Capture.png" alt="" />
+            <marquee><h1 className="text-center my-5 fs-1 fw-bolder"> Tutor Finder</h1></marquee>
+            {isLoading && <Spinner animation="border" variant="primary" />}
+            <div className='row'>
+
+                {/* card */}
                 <div className='col-lg-3 col-md-3 col-sm-12 col-12'>
-                    <Teach/>
+                    <Teach />
                 </div>
-               
+
                 {/* product */}
                 <div className='col-lg-9 col-md-9 col-sm-12 col-12'>
-                    
-                    {
-                            <div className="row gy-2 ">
-                            {teachs.map(teach => <SingleAbout
-                        key={teach.name}
-                        teach={teach}
-                        ></SingleAbout>)
-                            }
-                            </div>
-                        }
-                </div>
-        
 
-          </div>
+                    {
+                        <div className="row gy-2 ">
+                            {teachs.map(teach => <SingleAbout
+                                key={teach.name}
+                                teach={teach}
+                            ></SingleAbout>)
+                            }
+                        </div>
+                    }
+                </div>
+
+
+            </div>
         </div>
     )
 }

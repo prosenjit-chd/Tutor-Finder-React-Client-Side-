@@ -1,10 +1,10 @@
 import React from 'react';
 // import { Route, Redirect } from 'react-router-dom';
-import useAuth from './../../../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
 import ReactLoading from 'react-loading';
 import { Navigate, useLocation } from 'react-router-dom';
 
-const AdminRoute = ({ children, ...rest }) => {
+const TeacherRoute = ({ children, ...rest }) => {
     const { user, teacher, isLoading } = useAuth();
     let location = useLocation();
 
@@ -28,4 +28,4 @@ const AdminRoute = ({ children, ...rest }) => {
     return <Navigate to="/" state={{ from: location }} />;
 };
 
-export default AdminRoute;
+export default TeacherRoute;
