@@ -16,7 +16,7 @@ const SingleHome = ({teach}) => {
             <Card.Text>{salary} tk/month</Card.Text>
             <Card.Text>{mobile}</Card.Text>
             <Card.Text>{area}</Card.Text>
-            <Link to={`/courses/${teach?._id}`}><Button className="btn-color" variant="primary">Details</Button></Link>
+            <Link to={`/courses/${teach?._id}`}><Button className="fw-bold border-0 px-4 fs-5">Details</Button></Link>
             </Card.Body>
             </Card>
       </div>
