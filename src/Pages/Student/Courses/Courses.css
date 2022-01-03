@@ -6,11 +6,11 @@
 }
 
 /* form-style-start */
-.form-added{
+/* .form-added{
     display: flex;
     flex-direction: column;
     margin-left: 200px;
-}
+} */
 .form-added input{
     width: 100%;
     margin: 8px;

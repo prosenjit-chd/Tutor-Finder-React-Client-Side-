@@ -7,8 +7,8 @@ const SingleAbout = ({teach}) => {
     const {img, name, salary, mobile, institute, area, current_education} = teach;
     console.log(teach)
     return (
-        <div className='col-lg-4 col-md-6 col-12 card-design mx-4'>
-            <Card className="card" style={{ width: '18rem' }}>
+        <div className='col-lg-4 col-md-6 col-sm-12 col-12 card-design '>
+            <Card className="card" style={{ width: '19rem' }}>
             <Card.Img variant="top" className='img-design h-70' src={img} />
             <Card.Body className="text-center">
             <Card.Title>{name}</Card.Title>
@@ -17,7 +17,7 @@ const SingleAbout = ({teach}) => {
             <Card.Text>{salary} tk/month</Card.Text>
             <Card.Text>{mobile}</Card.Text>
             <Card.Text>{area}</Card.Text>
-            <Link to={`/Courses/${teach.id}`}><Button className="btn-color" variant="primary">Details</Button></Link>
+            <Link to={`/courses/${teach._id}`}><Button className="fw-bold fs-5 px-3" >Details</Button></Link>
             </Card.Body>
             </Card>
         </div>
