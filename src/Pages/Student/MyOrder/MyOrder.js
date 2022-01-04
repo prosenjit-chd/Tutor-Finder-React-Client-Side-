@@ -54,7 +54,7 @@ const MyOrder = () => {
                         >
                             <div className="card mb-3 single-card ">
                                 <div className="row g-0 ">
-                                    <div className="col-md-4  text-center">
+                                    <div className="col-md-4 text-center p-2">
                                         <img src={teacher?.img} className="img-fluid card-image rounded " alt="..." />
                                     </div>
                                     <div className="col-md-8">

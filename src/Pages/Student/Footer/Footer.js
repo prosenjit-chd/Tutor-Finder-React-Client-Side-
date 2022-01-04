@@ -1,13 +1,13 @@
 import React from 'react'
-import logo from '../../../bannerImages/logo-01.png'
+import logo from '../../../bannerImages/logo-tutor-finder-1.png'
 import './Footer.css'
 
 const Footer = () => {
     return (
         <div className='text-center p-5 bg-black top-design'>
-            <img src={logo} alt="" /><br /><br />
+            <img height={100} src={logo} alt="" /><br /><br />
             {/* icon-start */}
-            <h5 className='footer-design'>Ut wisi enim ad minim veniam, quis laore nostru exerci tation ulm hedi corper suscipit<br />lobornisl ut aliquip erat volutpat autem veleum iriurdolor</h5>
+            <h5 className='footer-design'>Finder your best teacher from one place</h5>
             <h3 className='footer-design'><a href="https://www.youtube.com/results?search_query=programing+english+tutorial"><i class="fab fa-youtube mx-2"></i></a>
                 <a href="https://www.facebook.com/"><i class="fab fa-facebook mx-2"></i></a>
                 <a href="https://www.linkedin.com/in/fahmida14/"><i class="fab fa-linkedin mx-2"></i></a>
@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
             <div>
             </div>
-            <p className='copyright'>Copyright 2020 Corporate WordPress Theme by ThimPress</p>
+            <p className='copyright'>Copyright 2022 Tutor-Finder</p>
         </div>
     )
 }

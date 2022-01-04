@@ -39,7 +39,7 @@ const NewTeacherStatus = () => {
                             <div className="card mb-3 single-card ">
                                 <div className="row g-0 ">
                                     <div className="col-md-4 border text-center">
-                                        <img src={teacher?.img} className="img-fluid card-image rounded-pill mt-4" alt="..." />
+                                        <img src={teacher?.img} className="img-fluid card-image  p-2 rounded-2" alt="..." />
                                     </div>
                                     <div className="col-md-8">
                                         <div className="card-body">

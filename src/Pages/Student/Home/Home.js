@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Row, Spinner } from 'react-bootstrap'
 import SingleHome from '../SingleHome/SingleHome'
+import ReactLoading from 'react-loading';
 import './Home.css'
 import Banner from '../Banner/Banner'
 
@@ -23,9 +24,11 @@ const Home = () => {
             <div>
 
                 <h2 className="text-center my-5"> Tutor Finder</h2>
-                {isLoading && <Spinner animation="border" variant="primary" />}
+                {isLoading && <div className="d-flex align-items-center justify-content-center" style={{ height: '80vh' }}>
+                    <ReactLoading type={"spinningBubbles"} color={"#A99577"} height={100} width={100} />
+                </div>}
                 {
-                    <Row xs={1} md={2} className="g-4 single-product">
+                    <Row xs={1} md={2} className="g-4 single-product mx-auto">
                         {teachs.slice(0, 6).map(teach => <SingleHome
                             key={teach.name}
                             teach={teach}

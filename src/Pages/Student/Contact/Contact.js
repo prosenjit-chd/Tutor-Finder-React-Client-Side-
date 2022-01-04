@@ -1,12 +1,12 @@
 import React from 'react'
 import './Contact.css'
-import banner from '../../../bannerImages/1000_F_415483705_W0a7hGcbrURMoX3grdX3ncYd94YKwSDI.jpg'
+import banner from '../../../bannerImages/Contact us_topbanner_cropped.jpg'
 
 
 const Contact = () => {
     return (
         <div className='container'>
-            <img src="https://i.ibb.co/y69v7Hr/1000-F-415483705-W0a7h-Gcbr-URMo-X3grd-X3nc-Yd94-YKw-SDI.jpg" class='img-fluid' alt="" />
+            <img src={banner} class='img-fluid' alt="" />
             <h2 className='text-center my-5'>Contact Us</h2>
             <div>
                 <div class="container">
@@ -33,9 +33,9 @@ const Contact = () => {
                 </div>
             </div>
             {/* form */}
-            <div>
+            <div className='mx-auto px-lg-5'>
                 <h1 className='text-center my-5'>Leave a Message</h1>
-                <form className='w-75 input-design col-12 col-md-12'>
+                <form className=''>
                     <div class="mb-3">
                         <input type="email" class="form-control" placeholder='Name' id="exampleInputEmail1" />
                     </div>

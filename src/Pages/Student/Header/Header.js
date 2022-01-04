@@ -5,6 +5,7 @@ import { BagPlus, ListUl, Person, BsPersonCircle, BsPower } from 'react-icons/bs
 import useAuth from '../../../hooks/useAuth'
 import './Header.css'
 import blankImg from '../../../bannerImages/blank-profile.png';
+import logo from '../../../bannerImages/logo-tutor-finder-1.png';
 
 const Header = () => {
   const { user, logout, admin, teacher } = useAuth();
@@ -30,7 +31,7 @@ const Header = () => {
         <div className="container-fluid">
           <div className="">
             <a className="navbar-brand" href="#">
-              <img src="https://i.ibb.co/Wn9KP72/logo-00.png" alt="" width="150" height="24" />
+              <img src={logo} alt="" width="150" height="50" />
             </a>
           </div>
           {/* <a class="navbar-brand" href="#">Navbar</a> */}
@@ -60,7 +61,7 @@ const Header = () => {
             </ul>
             {/* toggle loging logout  */}
             {!user?.email ?
-              <Nav.Link as={NavLink} activeStyle={activeStyle} to="/login" className='d-flex'><BsPersonCircle className="fs-5 mb-1" /> Login</Nav.Link>
+              <Nav.Link as={NavLink} activeStyle={activeStyle} to="/login" className='d-flex'><BsPersonCircle className="fs-5 pt-1" /> Login</Nav.Link>
               :
               <Dropdown>
                 <Dropdown.Toggle variant="white" id="dropdown-basic">
