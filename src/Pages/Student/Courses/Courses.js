@@ -3,11 +3,13 @@ import { useParams } from 'react-router-dom';
 import { useForm} from "react-hook-form";
 import './Courses.css'
 import swal from 'sweetalert';
+import useAuth from '../../../hooks/useAuth';
 
 
 const Courses = () => {
     const {id}=useParams();
     const [teacher,setTeacher]=useState([])
+    const {user}=useAuth()
    
 
     useEffect(()=>{
@@ -80,8 +82,8 @@ const Courses = () => {
                 {/* 2nd-part form */}
             <div className="col col-lg-5 col-md-5 col-sm-12 col-12 pt-5 ">
                 <form className='w-100' onSubmit={handleSubmit(onSubmit)}>
-                    <input className='w-75 py-2 mx-auto rounded mb-2 border' {...register("studentName", { required: true, maxLength: 20 })} placeholder="Name"/><br/>
-                    <input className='w-75 py-2 mx-auto rounded mb-2 border' {...register("studentEmail", { required: true })} type="email" placeholder="Email"/><br/>
+                    <input className='w-75 py-2 mx-auto rounded mb-2 border' {...register("studentName", { required: true, maxLength: 20 })} value={user?.displayName}/><br/>
+                    <input className='w-75 py-2 mx-auto rounded mb-2 border' {...register("studentEmail", { required: true })} type="email" value={user?.email}/><br/>
                     <input className='w-75 py-2 mx-auto rounded mb-2 border' type="number" {...register("studentNumber")} placeholder="Phone Number" /><br/>
                     <textarea className='w-75 py-2 mx-auto rounded mb-2 border' type="number" {...register("studentMessage")} placeholder="Write you Something________________" /><br/>
                     <input className='w-75 py-2 mx-auto rounded mb-2 bg-primary text-white fw-bolder border-0'  type="submit" value="Submit" /> 

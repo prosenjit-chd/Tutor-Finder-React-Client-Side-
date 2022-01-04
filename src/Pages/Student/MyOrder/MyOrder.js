@@ -3,15 +3,17 @@ import { Container, Spinner } from 'react-bootstrap';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import swal from 'sweetalert';
+import useAuth from '../../../hooks/useAuth';
 
 
 const MyOrder = () => {
     AOS.init();
     const [teachers, setTeachers] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
+    const {user}=useAuth()
     useEffect(() => {
         setIsLoading(true)
-        fetch('https://tutor-finder.herokuapp.com/orders?studentEmail=abusufian.programmer@gmail.com')
+        fetch(`https://tutor-finder.herokuapp.com/orders?studentEmail=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setTeachers(data)
