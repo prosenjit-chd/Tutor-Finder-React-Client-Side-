@@ -5,7 +5,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className='text-center p-5 bg-black top-design'>
-            <img height={100} src={logo} alt="" /><br /><br />
+            <img height={80} src={logo} alt="" /><br /><br />
             {/* icon-start */}
             <h5 className='footer-design'>Finder your best teacher from one place</h5>
             <h3 className='footer-design'><a href="https://www.youtube.com/results?search_query=programing+english+tutorial"><i class="fab fa-youtube mx-2"></i></a>
