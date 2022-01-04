@@ -5,7 +5,7 @@ import banner from '../../../bannerImages/1000_F_415483705_W0a7hGcbrURMoX3grdX3n
 
 const Contact = () => {
     return (
-        <div>
+        <div className='container'>
             <img src="https://i.ibb.co/y69v7Hr/1000-F-415483705-W0a7h-Gcbr-URMo-X3grd-X3nc-Yd94-YKw-SDI.jpg" class='img-fluid' alt="" />
             <h2 className='text-center my-5'>Contact Us</h2>
             <div>

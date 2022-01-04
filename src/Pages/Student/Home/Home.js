@@ -10,7 +10,7 @@ const Home = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch('https://tutor-finder.herokuapp.com/tutors')
+        fetch('https://tutor-finder.herokuapp.com/tutors?status=true')
             .then(res => res.json())
             .then(data => {
                 setTeachs(data.tutors)

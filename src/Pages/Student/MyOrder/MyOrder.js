@@ -10,10 +10,10 @@ const MyOrder = () => {
     AOS.init();
     const [teachers, setTeachers] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
-    const {user}=useAuth()
+    const { user } = useAuth()
     useEffect(() => {
         setIsLoading(true)
-        fetch(`https://tutor-finder.herokuapp.com/orders?studentEmail=${user?.email}`)
+        fetch(`https://tutor-finder.herokuapp.com/orders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setTeachers(data)
