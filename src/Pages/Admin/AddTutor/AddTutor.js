@@ -97,7 +97,7 @@ const AddTutor = () => {
                         </Form.Group>
                     </Row>
 
-                    <Button variant="primary" type="submit">
+                    <Button id="tutor-submit" variant="primary" type="submit">
                         Submit
                     </Button>
                 </Form>
