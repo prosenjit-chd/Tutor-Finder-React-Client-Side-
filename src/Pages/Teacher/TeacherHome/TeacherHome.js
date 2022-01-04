@@ -1,23 +1,57 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import './TeacherHome.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
+import swal from 'sweetalert';
+import useAuth from '../../../hooks/useAuth';
 
 const TeacherHome = () => {
+    // Use useAuth here 
+    const { user } = useAuth();
+
     AOS.init();
     const [teachers, setTeachers] = useState([]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
-        axios.get('https://tutor-finder.herokuapp.com/tutors?email=evan@gmail.com&status=true')
+        axios.get(`https://tutor-finder.herokuapp.com/tutors?email=${user.email}&status=true`)
             .then(res => setTeachers(res.data.tutors))
             .then(() => setLoading(false))
             .catch(err => console.log(err))
     }, []);
     console.log(teachers)
+
+
+    // Delete button handler 
+    const handleEventDelete = (id) => {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this post!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    axios.delete(`https://tutor-finder.herokuapp.com/tutors/${id}`)
+                        .then(res => {
+                            const remainingEvents = teachers.filter(e => e._id !== id);
+                            setTeachers(remainingEvents);
+                        }).catch(err => console.log(err))
+                    swal("Your post has been deleted!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Your post is safe!");
+                }
+            });
+
+
+    }
+
     return (
         <>
             <Header />
@@ -48,6 +82,7 @@ const TeacherHome = () => {
                                             <p className="card-text fw-bolder">Salary : Tk {teacher?.salary}</p>
                                             <p className="card-text fw-bolder">Tuition Areas : {teacher?.area}</p>
                                             <p className="card-text border-top">Current Status:<small className="text-primary fw-bold"> Approved</small></p>
+                                            <Button onClick={() => handleEventDelete(teacher._id)} variant="danger">Cancle</Button>
                                         </div>
                                     </div>
                                 </div>

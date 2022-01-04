@@ -3,21 +3,26 @@ import 'aos/dist/aos.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import useAuth from '../../../hooks/useAuth';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
 
 const NewTeacherStatus = () => {
+    // Use useAuth here 
+    const { user } = useAuth();
     AOS.init()
     const [teachers, setTeachers] = useState([]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
-        axios.get('https://tutor-finder.herokuapp.com/tutors?email=amiya@gmail.com&status=false')
+        axios.get(`https://tutor-finder.herokuapp.com/tutors?email=${user.email}&status=false`)
             .then(res => setTeachers(res.data.tutors))
             .then(() => setLoading(false))
             .catch(err => console.log(err))
     }, []);
     console.log(teachers)
+
+
     return (
         <>
             <Header />
